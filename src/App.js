@@ -6,13 +6,13 @@ import SearchBox from './SearchBox';
 import ImageList from './ImageList';
 
 import './App.css';
-import { GIPHY_API_KEY, DEFAULT_TITLE } from './config';
+import { GIPHY_RANDOM_URL, DEFAULT_TITLE } from './config';
 
 class App extends Component {
   state = { images: [], apiKey: "" };
 
   search = async (term) => {
-    const res = await axios.get(`http://api.giphy.com/v1/gifs/random?api_key=${GIPHY_API_KEY}&tag=${term}`);
+    const res = await axios.get(`${GIPHY_RANDOM_URL}&tag=${term}`);
     const img = res.data.data;
     this.setState((state, props) => ({
       images: [...this.state.images, {
@@ -21,10 +21,6 @@ class App extends Component {
         id: img.id,
       }]
     }))
-  }
-
-  handleKeyChange = (e) => {
-    this.setState({ apiKey: e.target.value });
   }
 
   render() {
