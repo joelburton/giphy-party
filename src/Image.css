@@ -1,0 +1,14 @@
+.Image {
+  display: inline-block;
+  width: 200px;
+  height: 150px;
+  margin: 10px;
+  font-size: 80%;
+  font-style: italic;
+  color: gray;
+}
+
+.Image img {
+  max-width: 200px;
+  max-height: 150px;
+}
