@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import './Image.css';
 
+/** Image: displays image title & image. */
+
 class Image extends React.PureComponent {
   static propTypes = {
     title: PropTypes.string,

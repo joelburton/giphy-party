@@ -6,6 +6,8 @@ import Image from './Image';
 import './ImageList.css';
 
 
+/** ImageList: shows list of images passed in as props. */
+
 class ImageList extends React.PureComponent {
   static propTypes = {
     images: PropTypes.arrayOf(PropTypes.object),

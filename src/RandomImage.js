@@ -5,14 +5,25 @@ import Image from './Image';
 
 import { DEFAULT_TITLE, GIPHY_RANDOM_URL } from './config';
 
-import './RandomGraphic.css';
+import './RandomImage.css';
 
-class RandomGraphic extends React.Component {
+
+/** RandomImage: select random image from API & displays. */
+
+class RandomImage extends React.Component {
   state = { 'url': null, 'title': null };
 
   async componentDidMount() {
-    const res = await axios.get(GIPHY_RANDOM_URL);
-    const img = res.data.data;
+    let img;
+
+    try {
+      const res = await axios.get(GIPHY_RANDOM_URL);
+      img = res.data.data;
+    } catch (err) {
+      console.error(`Error using GIPHY API: ${err}`);
+      return;
+    }
+
     this.setState({ url: img.image_url, title: img.title || DEFAULT_TITLE });
   }
 
@@ -29,4 +40,4 @@ class RandomGraphic extends React.Component {
   }
 }
 
-export default RandomGraphic;
+export default RandomImage;
